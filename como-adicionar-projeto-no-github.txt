@@ -1,0 +1,21 @@
+?- abrir o git dentro da pasta --> botão direito do mouse --> git bash here
+
+- iniciar o git com o comando --> git init
+
+- CONFIGURAR USUÁRIO E EMAIL PARA O GITHUB
+
+	--> git config --global user.name "nome do usuário no github"
+
+	--> git config --global user.email "email.cadastrado@github.com"
+
+- antes de gravar a primeira versão, ver como está o projeto --> git status
+
+- transferir os arquivos para a área de espera do git --> git add .
+
+- para gravar --> git commit -m "Mensagem a ser incluída"
+
+- INICIAR O PROJETO NO GITHUB E OBSERVAR OS COMANDO PARA VINCULAÇÃO DO PROJETO
+
+- para enviar para o github --> git push
+
+	--> ele vai pedir o nome do usuário (aquele user.name acima) e a senha de acesso ao github
