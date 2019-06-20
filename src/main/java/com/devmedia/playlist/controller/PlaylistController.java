@@ -64,4 +64,11 @@ public class PlaylistController {
 		attr.addFlashAttribute("mensagem", "Playlist atualizada com sucesso.");
 		return "redirect:/playlists/listar";
 	}
+	
+	@GetMapping("/{id}/remover")
+	public String remover(@PathVariable("id") long id, RedirectAttributes attr) {
+		playlistService.excluir(id);
+		attr.addFlashAttribute("mensagem", "Playlist excluída com sucesso.");
+		return "redirect:/playlists/listar";
+	}
 }

@@ -34,7 +34,7 @@
 					<td><a th:text="${playlist.descricao}">descricao</a></td>
 					<td>
 						<a class="btn btn-sm btn-info" th:href="@{/playlists/{id}/atualizar(id=${playlist.id})}">Editar</a>
-						<a class="btn btn-sm btn-danger">Excluir</a>
+						<a class="btn btn-sm btn-danger" th:href="@{/playlists/{id}/remover(id=${playlist.id})}">Excluir</a>
 					</td>
 				</tr>
 			</tbody>
