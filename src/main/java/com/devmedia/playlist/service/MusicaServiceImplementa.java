@@ -45,6 +45,6 @@ public class MusicaServiceImplementa implements MusicaService {
 
 	@Override
 	public void excluir(long playlistId, long musicaId) {
-		musicaDao.excluir(buscarPorPlaylistIdAndMusicaId(playlistId, musicaId));
+		musicaDao.excluir(buscarPorPlaylistIdAndMusicaId(playlistId, musicaId).getId());
 	}
 }

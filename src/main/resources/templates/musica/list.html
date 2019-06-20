@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spotmusic</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Spotmusic</h1>
+		</div>
+
+		<div>
+			<a class="btn btn-primary" th:href="@{/playlists/{playlistId}/musicas/cadastro(playlistId=${playlistId})}">Nova música</a>
+		</div>
+
+		<hr />
+		<div th:if="${musicas != null}">
+			<h4>Músicas da playlist</h4>
+
+			<div th:if="${mensagem != null}">
+				<div class="alert alert-info" role="alert">
+					<span th:text="${mensagem == null ? ' ' : mensagem}">mensagem</span>
+				</div>
+			</div>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Banda</th>
+						<th>Nota</th>
+						<th>Ação</th>
+					</tr>
+				</thead>
+				<tr th:each="musica : ${musicas}">
+					<td th:text="${musica.titulo}">titulo</td>
+					<td th:text="${musica.banda}">banda</td>
+					<td th:text="${musica.nota}">nota</td>
+					<td><a class="btn btn-sm btn-info" th:href="@{/playlists/{playlistId}/musicas/{musicaId}/atualizar(playlistId=${playlistId}, musicaId=${musica.id})}">Editar</a>
+						<a class="btn btn-sm btn-danger" th:href="@{/playlists/{playlistId}/musicas/{musicaId}/remover(playlistId=${playlistId}, musicaId=${musica.id})}">Excluir</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div th:if="${#lists.isEmpty(musicas)}">
+			<div class="alert alert-info" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign"></span>
+				0 músicas cadastradas!
+			</div>
+		</div>
+
+		<hr />
+		<a class="btn btn-light" th:href="@{/playlists/listar}">Voltar</a>
+
+		<hr />
+		<footer class="footer">
+			<p>&copy; DevMedia | 2019</p>
+		</footer>
+
+	</div>
+</body>
+</html>

@@ -41,7 +41,7 @@ public class MusicaDaoImplementa implements MusicaDao {
 	}
 
 	@Override
-	public void excluir(Musica musicaId) {
+	public void excluir(long musicaId) {
 		em.remove(em.getReference(Musica.class, musicaId));
 	}
 }

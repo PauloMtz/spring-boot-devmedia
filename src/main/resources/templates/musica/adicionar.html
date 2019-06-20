@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Spotmusic</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Spotmusic</h1>
+		</div>
+
+		<h4>Nova música</h4>
+
+		<form th:action="@{/playlists/{playlistId}/musicas/salvar(playlistId=${playlistId})}" th:method="${musica.id} == 0 ? post : put" th:object="${musica}">
+			<div class="row">
+				<input id="id" type="hidden" th:field="*{id}" />
+				<div class="form-group col-md-4">
+					<label for="titulo">Título:</label> <input class="form-control" id="titulo" type="text" th:field="*{titulo}" />
+					<div th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="banda">Banda:</label> <input class="form-control" id="banda" type="text" th:field="*{banda}" />
+					<div th:if="${#fields.hasErrors('banda')}" th:errors="*{banda}"></div>
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="nota">Nota:</label> <input class="form-control" id="nota" type="number" th:field="*{nota}" />
+					<div th:if="${#fields.hasErrors('nota')}" th:errors="*{nota}"></div>
+				</div>
+
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" type="submit">Salvar</button>
+			</div>
+
+		</form>
+		<hr />
+
+		<a class="btn btn-light" th:href="@{/playlists/{playlistId}/musicas/listar(playlistId=${playlistId})}">Voltar</a>
+
+		<hr />
+		<footer class="footer">
+			<p>&copy; DevMedia | 2019</p>
+		</footer>
+
+	</div>
+</body>
+</html>

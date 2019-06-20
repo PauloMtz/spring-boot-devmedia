@@ -10,5 +10,5 @@ public interface MusicaDao {
 	List<Musica> buscarPorPlaylist(long playlistId);
 	Musica buscarPorPlaylistIdAndMusicaId(long playlistId, long musicaId);
 	void atualizar(Musica musica);
-	void excluir(Musica musicaId);
+	void excluir(long musicaId);
 }

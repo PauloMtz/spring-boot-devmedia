@@ -10,5 +10,5 @@ public interface MusicaService {
 	List<Musica> buscarPorPlaylist(long playlistId);
 	Musica buscarPorPlaylistIdAndMusicaId(long playlistId, long musicaId);
 	void atualizar(Musica musica, long playlistId);
-	void excluir(long musicaId, long playlistId);
+	void excluir(long playlistId, long musicaId);
 }
